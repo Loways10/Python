@@ -14,7 +14,7 @@ tentativa = []
 chutes = []
 
 for i in range(len(palavra_secreta)):
-    tentativa.append('_')
+     tentativa.append('_')
 
 print(palavra_secreta)
 print(tentativa)
@@ -37,6 +37,7 @@ def jogar():
         chute = input('Digite uma letra R: ')
         if(encontraLetra(chute)):
             exibirMsg(tentativa)
+        
         else: 
             exibirMsg(f'Letra {chute} não encontrada')
             chutes.append(chute.upper())
@@ -44,13 +45,39 @@ def jogar():
             tentativas -= 1
             exibirMsg(f'Restam {tentativas} tentativas')
             exibirMsg(tentativa)
-
+        
+        if(verificaVitoria()):
+            exibirMsg('Parabens! Você venceu!')
+            break
+        
         if(tentativas <= 0):
             exibirMsg('Você perdeu! \n Jogue novamente')
             exibirMsg(f'A palavra secreta era {palavra_secreta.upper()}')
             break
 
+def verificaVitoria():
+    if('_' in tentativa):
+        return False
+    else:
+        return True
+
+def iniciaJogo():
+    global indice
+    indice = randint(0, len(palavras)) # recebe um numero aleatorio
+    global palavra_secreta
+    palavra_secreta = palavras[indice]
+    # palavra_secreta = palavras[1:] pega todos os itens da variavel
+    # palavra_secreta = palavras[1] pega o item 1
+    global tentativa
+    tentativa = []
+    global chutes
+    chutes = []
+
+    for i in range(len(palavra_secreta)):
+        tentativa.append('_')
+
 while(True):
+    iniciaJogo()
     exibirMsg('***** JOGO DA FORCA *****')
     menu = int(input('1 - Jogar \n 2 - Sair \n R: '))
     if(menu == 1):
