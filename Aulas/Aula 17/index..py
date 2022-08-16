@@ -84,26 +84,39 @@ def alterarCampo(valor, letra):
         elif tabuleiro[i][2] == valor:
             tabuleiro[i][2] = letra
 
-jogadas = 0
 while(True):
-    listar_tabuleiro()
-    if(jogadas % 2 == 0):
-        print("jogador 1")
-        alterarCampo(pergunta_jogada()), "X"
-        if verificaVitoria():
-            print('Jogador 1 ganhou a partida! ')
-            break
-    else:
-        print('jogador 2')
-        alterarCampo(pergunta_jogada()), "O"
-        if verificaVitoria():
-            print('Jogador 2 ganhou a partida! ')
-            break
+    menu = input(' 1 - JOGAR \n 2 - SAIR \n R: ')
+    if menu == "1":
+        jogador1 = input('Digite aqui o nome do jogador 1: ')
+        jogador2 = input('Digite aqui o nome do jogador 2: ')
+        jogadas = 0
+        contadorVitoria = 0
+        while(True):
+            listar_tabuleiro()
+            if(jogadas % 2 == 0):
+                print(jogador1)
+                alterarCampo(pergunta_jogada(), "X")
+                if verificaVitoria():
+                    contadorVitoria += 1
+                    print(f'{jogador1} ganhou a partida {contadorVitoria} vez(es)! ')
+                    break
+            else:
+                print(jogador2)
+                alterarCampo(pergunta_jogada(), "O")
+                if verificaVitoria():
+                    contadorVitoria += 1
+                    print(f'{jogador2} ganhou a partida {contadorVitoria} vez(es)! ')
+                    break
 
-    jogadas += 1
-    if jogadas == 9:
-        print('Deu velha! ')
+            jogadas += 1
+            if jogadas == 9:
+                print('Deu velha! ')
+                break
+    else:
+        print('Até Logo')
         break
+
+
 
 
     
