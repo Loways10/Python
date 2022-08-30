@@ -9,8 +9,8 @@ class Cliente:
         self.telefone = telefone
         self.endereco = endereco
 
-    def atualizar_endereco():
-        pass
+    def atualizar_endereco(self, valor):
+        self.endereco = valor
 
     def atualizar_telefone():
         pass
@@ -26,7 +26,18 @@ class Cliente:
 
 cliente = Cliente('Akio', 'M', 9968538007, 'Rio de Janeiro')
 print(cliente.codigo)
-print(cliente.nome)
-print(cliente.sexo)
-print(cliente.telefone)
+
+while(True):
+    menu = input('1 - Nome \n2 - sexo \n3 - telefone \n4 - mudar endereco \n5 - sair \nR: ')
+    if(menu == '1'):
+        print(cliente.nome)
+    elif(menu == '2'):
+        print(cliente.sexo)
+    elif(menu == '3'):
+        print(cliente.telefone)
+    elif(menu == '4'):
+        cliente.atualizar_endereco()
+    else:
+        break
+
 print(cliente.endereco)
