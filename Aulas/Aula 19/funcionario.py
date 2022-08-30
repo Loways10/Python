@@ -41,5 +41,5 @@ fun = Funcionario('Gabriel', 0, 10, 0)
 # fun.adicionar_horas_trabalhadas()
 # print(fun.exibir_funcionario())
 
-# fun.calcular_salario()
-# print(fun.exibir_funcionario())
+fun.calcular_salario()
+print(fun.exibir_funcionario())

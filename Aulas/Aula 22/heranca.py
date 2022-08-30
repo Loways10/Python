@@ -31,6 +31,7 @@ c.falar()
 
 f = Funcionario('Jorge', '000000000000')
 f.falar()
+
 class SerHumano:
     def __init__(self, nome, cpf):
         self.nome = nome
