@@ -1,6 +1,10 @@
-from classe import Pessoa
+from classe import Funcionario, Veiculo
 
-p = Pessoa('Oloco1', 1991)
-p.exibirPessoa()
-p.getnome("Akio")
-p.exibirPessoa()
+uno = Veiculo('Fiat Uno', 'KTR65F7')
+
+func1 = Funcionario('Thiago Silva', '12/03/2000', uno)
+
+func1.addDepend('Pedro Henrique', '08/06/2014', 'Filho')
+func1.addDepend('Lucia Batista Silva', '01/02/2000', 'Esposa')
+
+func1.exibirFuncionario()
